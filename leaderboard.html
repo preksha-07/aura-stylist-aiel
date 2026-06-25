@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuraStylist — Leaderboard & Challenges</title>
+  <meta name="description" content="Monthly fashion leaderboard, weekly outfit challenge, and your rewards hub." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="leaderboard.css" />
+</head>
+<body>
+
+  <!-- Decorative background blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
+
+  <!-- ═══ FIXED HEADER ═══════════════════════════════════════════ -->
+  <header class="lb-header" id="lb-header">
+    <div class="lb-header-inner">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Aura<em>Stylist</em></span>
+      </a>
+
+      <!-- Tab Navigation -->
+      <nav class="lb-tabs" role="tablist">
+        <button class="lb-tab active" data-view="lb" id="tab-lb" role="tab" aria-selected="true">
+          <span class="tab-icon">🏆</span>
+          <span class="tab-label">Leaderboard</span>
+        </button>
+        <button class="lb-tab" data-view="game" id="tab-game" role="tab" aria-selected="false">
+          <span class="tab-icon">🎮</span>
+          <span class="tab-label">Challenge</span>
+        </button>
+        <button class="lb-tab" data-view="rewards" id="tab-rewards" role="tab" aria-selected="false">
+          <span class="tab-icon">⭐</span>
+          <span class="tab-label">My Rewards</span>
+        </button>
+      </nav>
+
+      <!-- User chip -->
+      <div class="user-pill">
+        <div class="user-avatar-chip">P</div>
+        <div class="user-info-chip">
+          <span class="user-name-chip">Preksha</span>
+          <span class="user-pts-chip" id="header-pts">52,400 pts</span>
+        </div>
+        <span class="user-rank-chip">#1</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ VIEW 1: LEADERBOARD ════════════════════════════════════ -->
+  <div id="view-lb" class="lb-view active" role="tabpanel">
+    <div class="view-scroll">
+
+      <!-- Month banner -->
+      <div class="month-banner">
+        <div class="month-text">
+          <h1 class="month-title">June 2026</h1>
+          <p class="month-sub">Monthly Fashion Leaderboard</p>
+        </div>
+        <div class="countdown-wrap">
+          <div class="countdown-pill">
+            <span class="countdown-icon">⏱</span>
+            <span id="countdown-text">10 days remaining</span>
+          </div>
+          <p class="expire-hint">Points reset July 1st</p>
+        </div>
+      </div>
+
+      <!-- Top 3 Podium -->
+      <div class="podium-section" aria-label="Top 3 players">
+        <!-- 2nd Place -->
+        <div class="podium-item rank-2">
+          <div class="podium-card silver">
+            <div class="podium-avatar silver-av">P</div>
+            <div class="podium-name">Prathiksha</div>
+            <div class="podium-pts">14,890 pts</div>
+          </div>
+          <div class="podium-medal">🥈</div>
+          <div class="podium-stand s2">
+            <span class="stand-rank">2nd</span>
+          </div>
+        </div>
+
+        <!-- 1st Place -->
+        <div class="podium-item rank-1">
+          <div class="podium-crown">👑</div>
+          <div class="podium-card gold">
+            <div class="podium-avatar gold-av">P</div>
+            <div class="podium-name">Preksha</div>
+            <div class="podium-pts">52,400 pts</div>
+          </div>
+          <div class="podium-medal">🥇</div>
+          <div class="podium-stand s1">
+            <span class="stand-rank">1st</span>
+          </div>
+        </div>
+
+        <!-- 3rd Place -->
+        <div class="podium-item rank-3">
+          <div class="podium-card bronze">
+            <div class="podium-avatar bronze-av">P</div>
+            <div class="podium-name">Pratheeksha</div>
+            <div class="podium-pts">14,500 pts</div>
+          </div>
+          <div class="podium-medal">🥉</div>
+          <div class="podium-stand s3">
+            <span class="stand-rank">3rd</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rankings 4–15 -->
+      <div class="rankings-wrap">
+        <div class="rankings-head">
+          <span>Rank</span>
+          <span>Player</span>
+          <span>Points</span>
+          <span>Status</span>
+        </div>
+        <div class="rankings-body" id="rankings-body">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Referral note -->
+      <div class="lb-footer-note">
+        <span>👥 Top 15 players receive exclusive referral codes each month</span>
+      </div>
+
+    </div>
+  </div><!-- /#view-lb -->
+
+
+  <!-- ═══ VIEW 2: WEEKLY CHALLENGE ══════════════════════════════ -->
+  <div id="view-game" class="lb-view" role="tabpanel">
+    <div class="view-scroll">
+
+      <!-- Game header -->
+      <div class="game-header">
+        <div class="theme-pill" id="theme-pill">⚡ Week 3 · Resets in 4 days</div>
+        <h1 class="game-title">Fearless Contrast</h1>
+        <p class="game-desc">Pair sophistication with rebellion. Create the most intentional, creative mismatch — not just random noise.</p>
+        <div class="combo-tracker">
+          <span class="combo-label">Combos submitted:</span>
+          <div class="combo-dots" id="combo-dots">
+            <span class="combo-dot" id="dot-0"></span>
+            <span class="combo-dot" id="dot-1"></span>
+            <span class="combo-dot" id="dot-2"></span>
+          </div>
+          <span class="combo-fraction"><span id="combo-count">0</span> / 3</span>
+        </div>
+      </div>
+
+      <!-- PHASE: PICK -->
+      <div id="phase-pick" class="game-phase">
+
+        <div class="items-section">
+          <div class="items-section-label">
+            <span class="items-icon">👕</span>
+            <span>Choose a Top</span>
+          </div>
+          <div class="items-grid" id="tops-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <div class="items-section">
+          <div class="items-section-label">
+            <span class="items-icon">👖</span>
+            <span>Choose a Bottom</span>
+          </div>
+          <div class="items-grid" id="bottoms-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Submit bar -->
+        <div class="submit-bar">
+          <div class="selection-preview" id="selection-preview">
+            <div class="preview-item" id="preview-top">
+              <div class="preview-placeholder">
+                <span>👕</span>
+                <span>Pick a top</span>
+              </div>
+            </div>
+            <span class="preview-plus">✚</span>
+            <div class="preview-item" id="preview-bottom">
+              <div class="preview-placeholder">
+                <span>👖</span>
+                <span>Pick a bottom</span>
+              </div>
+            </div>
+          </div>
+          <div class="submit-actions">
+            <button class="btn-submit-outfit" id="btn-submit" disabled onclick="submitOutfit()">
+              ✨ Submit Outfit
+            </button>
+            <button class="btn-see-all" id="btn-see-all" style="display:none" onclick="showResults()">
+              📊 See All Results
+            </button>
+          </div>
+        </div>
+      </div><!-- /#phase-pick -->
+
+      <!-- PHASE: SCORE REVEAL -->
+      <div id="phase-score" class="game-phase hidden">
+        <div class="score-reveal-card">
+          <p class="score-eyebrow">Your Outfit Score</p>
+          <div class="score-circle">
+            <span class="score-num" id="score-display">0</span>
+            <span class="score-denom">/99</span>
+          </div>
+          <div class="score-pts-badge" id="score-pts-badge">+3 pts earned</div>
+
+          <div class="score-bars-wrap" id="score-bars">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="score-reasons-wrap" id="score-reasons">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="score-btn-row">
+            <button class="btn-try-again" id="btn-try-again" onclick="tryAnother()">
+              🔄 Try Another Combo
+            </button>
+            <button class="btn-see-all-2" onclick="showResults()">
+              📊 See All Results
+            </button>
+          </div>
+        </div>
+      </div><!-- /#phase-score -->
+
+      <!-- PHASE: RESULTS -->
+      <div id="phase-results" class="game-phase hidden">
+        <div class="results-header-row">
+          <h2 class="results-heading">Your Best Combinations</h2>
+          <div class="total-pts-pill" id="total-pts-pill"></div>
+        </div>
+        <div class="results-grid" id="results-grid">
+          <!-- Rendered by JS -->
+        </div>
+        <div class="results-footer">
+          <p class="next-week-note">🗓 New challenge drops next week with a fresh theme!</p>
+        </div>
+      </div><!-- /#phase-results -->
+
+    </div>
+  </div><!-- /#view-game -->
+
+
+  <!-- ═══ VIEW 3: MY REWARDS ════════════════════════════════════ -->
+  <div id="view-rewards" class="lb-view" role="tabpanel">
+    <div class="view-scroll">
+
+      <div class="rewards-header">
+        <h1 class="rewards-title">My Rewards</h1>
+        <p class="rewards-month">June 2026</p>
+      </div>
+
+      <!-- Rank summary card -->
+      <div class="my-rank-card rank-card-top1">
+        <div class="rank-badge-big rank-badge-gold">#1</div>
+        <div class="rank-details">
+          <div class="rank-name-big">Preksha</div>
+          <div class="rank-pts-big" id="rank-pts-big">52,400 pts this month</div>
+          <div class="rank-progress-row">
+            <div class="rank-bar-track">
+              <div class="rank-bar-fill" id="rank-bar-fill" style="background: var(--gold);"></div>
+            </div>
+          </div>
+          <p class="rank-progress-note">🏆 You're at the very top! Mystery Box unlocked.</p>
+        </div>
+        <div class="rank-next-milestone">
+          <span class="milestone-label">Mystery Box</span>
+          <span class="milestone-gap" style="color: var(--gold);">✅ Eligible</span>
+        </div>
+      </div>
+
+      <!-- Points history -->
+      <div class="rewards-section-card">
+        <h3 class="rsc-title">Points History — June</h3>
+        <div class="points-log" id="points-log">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Referral code (top 15) -->
+      <div class="rewards-section-card referral-card">
+        <div class="top15-badge">🌟 Top 15 Exclusive</div>
+        <h3 class="rsc-title">Your Referral Code</h3>
+        <p class="rsc-sub">Friends who use your code get a special discount on their purchase</p>
+        <div class="referral-code-box">
+          <span class="referral-code-text" id="ref-code">AURA-PREKSHA-1X42</span>
+          <button class="btn-copy-ref" id="btn-copy-ref" onclick="copyReferral()">
+            <span id="copy-label">Copy</span>
+          </button>
+        </div>
+        <div class="referral-stats-row">
+          <div class="ref-stat-box">
+            <span class="ref-stat-num">42</span>
+            <span class="ref-stat-label">Uses so far</span>
+          </div>
+          <div class="ref-stat-box">
+            <span class="ref-stat-num">5</span>
+            <span class="ref-stat-label">Needed to activate</span>
+          </div>
+          <div class="ref-stat-box locked-pts">
+            <span class="ref-stat-num">0 pts</span>
+            <span class="ref-stat-label">Waiting to unlock</span>
+          </div>
+        </div>
+        <div class="referral-progress-bar-wrap">
+          <div class="ref-prog-track">
+            <div class="ref-prog-fill" style="width: 40%"></div>
+          </div>
+          <span class="ref-prog-note">42 of 5 activations — Points fully unlocked!</span>
+        </div>
+        <p class="referral-expire-note">⚠️ Code must reach 5 uses within 2 weeks of leaderboard release</p>
+      </div>
+
+      <!-- Mystery Box — UNLOCKED for Top 5 + 50,000 pts (criteria hidden from user) -->
+      <div class="rewards-section-card mystery-card">
+        <div class="mystery-inner unlocked" id="mystery-box" onclick="openMysteryBox()" role="button" tabindex="0" aria-label="Open your Mystery Box">
+          <div class="mystery-glow-ring"></div>
+          <div class="mystery-icon">🎁</div>
+          <div class="mystery-unlock-badge">🔓 Unlocked</div>
+          <h3 class="mystery-title">Mystery Box</h3>
+          <p class="mystery-teaser">Tap to reveal your exclusive elite reward!</p>
+          <div class="mystery-cta-btn">✨ Open Box</div>
+        </div>
+      </div>
+
+      <!-- Expire warning -->
+      <div class="expire-warning-card">
+        <div class="ew-icon">⚠️</div>
+        <div>
+          <strong>Points expire July 1st</strong>
+          <p>Your 52,400 pts do not carry forward to the next month</p>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /#view-rewards -->
+
+
+  <!-- ═══ MYSTERY BOX MODAL ═══════════════════════════════════ -->
+  <div id="mystery-modal" class="mystery-modal-overlay" role="dialog" aria-modal="true" aria-label="Mystery Box Reward" onclick="closeMysteryModal(event)">
+    <div class="mystery-modal-card">
+      <div class="mystery-modal-confetti" id="mystery-confetti" aria-hidden="true"></div>
+
+      <!-- Phase 1: Spinner (shows while "opening") -->
+      <div class="mb-spinner-phase" id="mb-spinner-phase">
+        <div class="mb-spinner-wrap">
+          <div class="mb-spinner-ring"></div>
+          <div class="mb-spinner-gift">🎁</div>
+        </div>
+        <p class="mb-spinner-text">Opening your Mystery Box…</p>
+      </div>
+
+      <!-- Phase 2: Reward reveal (hidden until spinner done) -->
+      <div class="mb-reveal-phase hidden" id="mb-reveal-phase">
+        <div class="mystery-modal-gift" id="mystery-gift">🎁</div>
+        <h2 class="mystery-modal-title" id="mystery-modal-title">Your Reward!</h2>
+        <div class="mystery-modal-reward" id="mystery-modal-reward"></div>
+        <p class="mystery-modal-note" id="mystery-modal-note"></p>
+        <div class="mb-actions-row">
+          <button class="mb-copy-btn hidden" id="mb-copy-btn" onclick="copyMysteryCode()">
+            <span id="mb-copy-label">📋 Copy Code</span>
+          </button>
+          <button class="mystery-modal-close" onclick="closeMysteryModal()">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="leaderboard.js"></script>
+</body>
+</html>

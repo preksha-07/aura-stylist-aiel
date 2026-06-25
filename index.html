@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura Stylist — AI-Powered Fashion Recommendations</title>
+  <meta name="description"
+    content="Describe what you want to wear and let AI recommend outfits tailored to your occasion, budget, and personality. Premium AI-powered fashion styling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Animated Background Blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Aura<em>Stylist</em></span>
+      </div>
+      <nav class="header-nav">
+        <a href="#" class="nav-link active">Style</a>
+        <a href="#" class="nav-link">Discover</a>
+        <a href="#" class="nav-link">Trends</a>
+        <a href="#" class="nav-link">Wardrobe</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-image" style="background-image: url('fashion_hero_bg.png');"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>AI-Powered Styling</span>
+        </div>
+        <h1 class="hero-headline">
+          Find Your <span class="gradient-text">Perfect Outfit</span><br />
+          <em>with AI</em>
+        </h1>
+        <p class="hero-subtitle">
+          Describe what you want to wear, choose a few preferences, and let AI recommend<br />
+          styles tailored to your occasion, budget, and personality.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-item"><span class="stat-num">50K+</span><span class="stat-label">Styles Generated</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num">4.4★</span><span class="stat-label">User Rating</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num">1000+</span><span class="stat-label">Style Occasions</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll to style</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Main Recommendation Form -->
+    <section class="recommender" id="recommender">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header fade-in">
+          <span class="section-tag">✦ Style Studio</span>
+          <h2>Tell Us Your Style</h2>
+          <p>Fill in the details below to get your personalized AI fashion recommendation</p>
+        </div>
+
+        <div class="recommender-layout">
+
+          <!-- Left Column: Description + Primary Attributes -->
+          <div class="col-left">
+
+            <!-- Description Box -->
+            <div class="glass-card fade-in" id="description-card">
+              <div class="card-label">
+                <span class="label-icon">✍️</span>
+                <span>Describe Your Style</span>
+                <span class="required-badge">Required</span>
+              </div>
+              <div class="textarea-wrapper">
+                <textarea id="style-description" class="style-textarea" rows="4"
+                  placeholder="What do you like to wear today?&#10;&#10;Try: &quot;I need something elegant for my friend's wedding.&quot;"
+                  maxlength="500"></textarea>
+                <div class="textarea-footer">
+                  <div class="example-chips">
+                    <button class="chip-example" onclick="fillExample('Casual college outfit under ₹2000')">Casual
+                      College</button>
+                    <button class="chip-example" onclick="fillExample('Elegant look for friend\'s wedding')">Wedding
+                      Guest</button>
+                    <button class="chip-example" onclick="fillExample('Minimal Korean-inspired office look')">Korean
+                      Office</button>
+                  </div>
+                  <span class="char-count" id="char-count">0 / 500</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Primary Attributes -->
+            <div class="glass-card fade-in" id="primary-attrs-card">
+              <div class="card-label">
+                <span class="label-icon">🎯</span>
+                <span>Primary Attributes</span>
+                <span class="tag-hint">3 required</span>
+              </div>
+
+              <div class="attrs-grid">
+
+                <!-- Occasion -->
+                <div class="attr-group" id="occasion-group">
+                  <label class="attr-label" for="occasion-select">
+                    Occasion <span class="req-star">*</span>
+                  </label>
+                  <div class="select-wrapper">
+                    <select id="occasion-select" class="attr-select">
+                      <option value="">Select occasion</option>
+                      <option value="wedding">Wedding / Ceremony</option>
+                      <option value="party">Party / Celebration</option>
+                      <option value="casual">Casual / Everyday</option>
+                      <option value="office">Office / Professional</option>
+                      <option value="date">Date Night</option>
+                      <option value="college">College / Campus</option>
+                      <option value="festival">Festival / Cultural</option>
+                      <option value="beach">Beach / Vacation</option>
+                      <option value="sports">Sports / Active</option>
+                      <option value="formal">Black Tie / Formal</option>
+                    </select>
+                    <span class="select-arrow">▾</span>
+                  </div>
+                </div>
+
+                <!-- Age Group -->
+                <div class="attr-group" id="age-group">
+                  <label class="attr-label" for="age-select">
+                    Age Group <span class="req-star">*</span>
+                  </label>
+                  <div class="select-wrapper">
+                    <select id="age-select" class="attr-select">
+                      <option value="">Select age group</option>
+                      <option value="teen">Teen (13–17)</option>
+                      <option value="young-adult">Young Adult (18–25)</option>
+                      <option value="adult">Adult (26–35)</option>
+                      <option value="mid-adult">Mid Adult (36–45)</option>
+                      <option value="mature">Mature (46–60)</option>
+                      <option value="senior">Senior (60+)</option>
+                    </select>
+                    <span class="select-arrow">▾</span>
+                  </div>
+                </div>
+
+                <!-- Budget Slider -->
+                <div class="attr-group full-width" id="budget-group">
+                  <label class="attr-label" for="budget-range">
+                    Budget <span class="req-star">*</span>
+                    <span class="budget-display" id="budget-display">₹500 – ₹5,000</span>
+                  </label>
+                  <div class="range-track-wrapper">
+                    <input type="range" id="budget-min" class="range-slider" min="500" max="50000" step="500"
+                      value="500" />
+                    <input type="range" id="budget-max" class="range-slider" min="500" max="50000" step="500"
+                      value="5000" />
+                    <div class="range-track">
+                      <div class="range-fill" id="range-fill"></div>
+                    </div>
+                  </div>
+                  <div class="range-labels">
+                    <span>₹500</span>
+                    <span>₹50,000+</span>
+                  </div>
+                </div>
+
+                <!-- Colour Preference -->
+                <div class="attr-group full-width" id="colour-group">
+                  <label class="attr-label">Colour Preference</label>
+                  <div class="color-chips" id="color-chips-container">
+                    <button class="color-chip" data-color="black" style="--chip-color: #1a1a1a;" title="Black">
+                      <span class="chip-swatch"></span><span>Black</span>
+                    </button>
+                    <button class="color-chip" data-color="white"
+                      style="--chip-color: #f5f5f5; border: 1.5px solid #ddd;" title="White">
+                      <span class="chip-swatch"></span><span>White</span>
+                    </button>
+                    <button class="color-chip" data-color="nude" style="--chip-color: #C9A97C;" title="Nude">
+                      <span class="chip-swatch"></span><span>Nude</span>
+                    </button>
+                    <button class="color-chip" data-color="blush" style="--chip-color: #FFB7C5;" title="Blush">
+                      <span class="chip-swatch"></span><span>Blush</span>
+                    </button>
+                    <button class="color-chip" data-color="lavender" style="--chip-color: #C4A9FF;" title="Lavender">
+                      <span class="chip-swatch"></span><span>Lavender</span>
+                    </button>
+                    <button class="color-chip" data-color="mint" style="--chip-color: #7DE8CB;" title="Mint">
+                      <span class="chip-swatch"></span><span>Mint</span>
+                    </button>
+                    <button class="color-chip" data-color="cobalt" style="--chip-color: #2F54EB;" title="Cobalt">
+                      <span class="chip-swatch"></span><span>Cobalt</span>
+                    </button>
+                    <button class="color-chip" data-color="red" style="--chip-color: #E84B4B;" title="Red">
+                      <span class="chip-swatch"></span><span>Red</span>
+                    </button>
+                    <button class="color-chip" data-color="olive" style="--chip-color: #7C8A50;" title="Olive">
+                      <span class="chip-swatch"></span><span>Olive</span>
+                    </button>
+                    <button class="color-chip" data-color="multicolor"
+                      style="background: linear-gradient(135deg,#FFB7C5,#C4A9FF,#7DE8CB,#8FD3FE);" title="Multi-color">
+                      <span class="chip-swatch"
+                        style="background: linear-gradient(135deg,#FFB7C5,#C4A9FF,#7DE8CB,#8FD3FE);"></span><span>Multi</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Fabric -->
+                <div class="attr-group full-width" id="fabric-group">
+                  <label class="attr-label">Fabric</label>
+                  <div class="pill-group" id="fabric-pills">
+                    <button class="pill" data-value="cotton">Cotton</button>
+                    <button class="pill" data-value="silk">Silk</button>
+                    <button class="pill" data-value="linen">Linen</button>
+                    <button class="pill" data-value="denim">Denim</button>
+                    <button class="pill" data-value="chiffon">Chiffon</button>
+                    <button class="pill" data-value="velvet">Velvet</button>
+                    <button class="pill" data-value="georgette">Georgette</button>
+                    <button class="pill" data-value="knit">Knit</button>
+                    <button class="pill" data-value="leather">Leather</button>
+                    <button class="pill" data-value="any">Any</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Secondary Attributes + Image Preview -->
+          <div class="col-right">
+
+            <!-- Secondary Attributes -->
+            <div class="glass-card glass-card-sm fade-in" id="secondary-attrs-card">
+              <div class="card-label">
+                <span class="label-icon">✨</span>
+                <span>Secondary Attributes</span>
+              </div>
+              <div class="secondary-grid">
+
+                <!-- Brand -->
+                <div class="attr-group">
+                  <label class="attr-label" for="brand-select">Brand Preference</label>
+                  <div class="select-wrapper">
+                    <select id="brand-select" class="attr-select attr-select-sm">
+                      <option value="">Any Brand</option>
+                      <option value="zara">Zara</option>
+                      <option value="hm">H&amp;M</option>
+                      <option value="mango">Mango</option>
+                      <option value="fabindia">FabIndia</option>
+                      <option value="uniqlo">Uniqlo</option>
+                      <option value="only">Only</option>
+                      <option value="biba">BIBA</option>
+                      <option value="wforwoman">W for Woman</option>
+                      <option value="forever21">Forever 21</option>
+                      <option value="luxury">Luxury (Gucci, LV...)</option>
+                    </select>
+                    <span class="select-arrow">▾</span>
+                  </div>
+                </div>
+
+                <!-- Season -->
+                <div class="attr-group">
+                  <label class="attr-label" for="season-select">Season</label>
+                  <div class="select-wrapper">
+                    <select id="season-select" class="attr-select attr-select-sm">
+                      <option value="">All Seasons</option>
+                      <option value="spring">Spring</option>
+                      <option value="summer">Summer</option>
+                      <option value="monsoon">Monsoon</option>
+                      <option value="autumn">Autumn / Fall</option>
+                      <option value="winter">Winter</option>
+                    </select>
+                    <span class="select-arrow">▾</span>
+                  </div>
+                </div>
+
+                <!-- Style -->
+                <div class="attr-group full-width">
+                  <label class="attr-label">Style Aesthetic</label>
+                  <div class="pill-group pill-group-sm" id="style-pills">
+                    <button class="pill pill-sm" data-value="minimalist">Minimalist</button>
+                    <button class="pill pill-sm" data-value="boho">Boho</button>
+                    <button class="pill pill-sm" data-value="streetwear">Streetwear</button>
+                    <button class="pill pill-sm" data-value="classic">Classic</button>
+                    <button class="pill pill-sm" data-value="romantic">Romantic</button>
+                    <button class="pill pill-sm" data-value="edgy">Edgy</button>
+                    <button class="pill pill-sm" data-value="preppy">Preppy</button>
+                    <button class="pill pill-sm" data-value="cottagecore">Cottagecore</button>
+                    <button class="pill pill-sm" data-value="korean">K-Fashion</button>
+                  </div>
+                </div>
+
+                <!-- Size -->
+                <div class="attr-group full-width">
+                  <label class="attr-label">Size</label>
+                  <div class="size-grid" id="size-grid">
+                    <button class="size-btn" data-value="XS">XS</button>
+                    <button class="size-btn" data-value="S">S</button>
+                    <button class="size-btn" data-value="M">M</button>
+                    <button class="size-btn" data-value="L">L</button>
+                    <button class="size-btn" data-value="XL">XL</button>
+                    <button class="size-btn" data-value="XXL">XXL</button>
+                    <button class="size-btn size-btn-wide" data-value="Plus Size">Plus Size</button>
+                    <button class="size-btn size-btn-wide" data-value="Petite">Petite</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <!-- Generate CTA -->
+        <div class="generate-cta fade-in" id="generate-cta">
+          <button class="btn-generate" id="generate-btn">
+            <span class="btn-generate-icon">✨</span>
+            <span class="btn-generate-text">Generate AI Outfit Recommendation</span>
+            <span class="btn-generate-shimmer"></span>
+          </button>
+          <p class="cta-hint">Powered by AI · Personalized in seconds · 100% free to try</p>
+        </div>
+
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Aura<em>Stylist</em></span>
+      </div>
+      <p class="footer-tagline">Your AI-powered personal stylist, always in style.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+      <p class="footer-copy">© 2025 AuraStylist. Crafted with ♡ for fashion lovers.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

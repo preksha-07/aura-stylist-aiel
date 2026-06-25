@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural History Museum — Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+  <style>
+    /* Global Overrides */
+    :root {
+      --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    }
+
+    body {
+      background-color: #fcfcfc;
+      color: #111;
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* SVG Sand Transition Render Optimization */
+    .sand-target {
+      filter: url(#sand-displace-filter);
+      transition: opacity 0.4s ease;
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden bg-[#fcfcfc] text-[#111] font-sans">
+
+  <svg class="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
+    <defs>
+      <filter id="sand-displace-filter" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="1.8" numOctaves="4" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"
+          result="displaced" />
+        <feOffset dx="0" dy="0" result="offset" />
+        <feGaussianBlur stdDeviation="0" result="blur" />
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="relative w-full min-h-screen flex flex-col overflow-hidden">
+
+    <div id="hero-video-container"
+      class="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-0 transition-opacity duration-1000">
+      <video id="hero-video" loop muted playsinline class="w-full h-full object-cover">
+        <source
+          src="https://res.cloudinary.com/dsdxaxkiz/video/upload/v1779624998/magnific_use-img-2-as-the-exact-ba_Piu3X0W42C_wnrc8f.mp4"
+          type="video/mp4">
+      </video>
+    </div>
+
+    <header class="pt-6 px-6 md:px-16 z-20 relative">
+      <h1 id="nhm-logo-container" class="w-full transform scale-[1.03] transition-transform duration-1000 ease-out">
+        <svg viewBox="0 0 840 100" fill="#111" class="w-full h-auto">
+          <g class="letter-group">
+            <polygon points="0,0 14,0 14,100 0,100"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 100ms;"></polygon>
+            <polygon points="0,0 33,0 214,100 181,100"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 160ms;"></polygon>
+            <polygon points="200,0 214,0 214,100 200,100"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 220ms;"></polygon>
+          </g>
+          <g class="letter-group" transform="translate(280,0)">
+            <polygon points="0,0 14,0 14,100 0,100"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 280ms;"></polygon>
+            <polygon points="14,43 200,43 200,57 14,57"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 340ms;"></polygon>
+            <polygon points="200,0 214,0 214,100 200,100"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 400ms;"></polygon>
+          </g>
+          <g class="letter-group" transform="translate(560,0)">
+            <polygon points="0,0 14,0 14,100 0,100"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 460ms;"></polygon>
+            <polygon points="0,0 26,0 153,100 127,100"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 520ms;"></polygon>
+            <polygon points="254,0 280,0 153,100 127,100"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 580ms;"></polygon>
+            <polygon points="266,0 280,0 280,100 266,100"
+              class="transform translate-y-[120px] opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="transition-delay: 640ms;"></polygon>
+          </g>
+        </svg>
+      </h1>
+    </header>
+
+    <div id="sub-nav"
+      class="flex justify-between items-start mt-8 pt-2 px-6 md:px-16 font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase z-20 relative opacity-0 transform translate-y-5 transition-all duration-800 ease-out"
+      style="transition-delay: 700ms;">
+      <div class="w-[15%] leading-relaxed text-gray-800">
+        <div>Natura</div>
+        <div>History</div>
+        <div>Museum</div>
+      </div>
+
+      <div class="hidden md:block w-[5%] pt-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </div>
+
+      <div class="flex-1 md:flex-none md:w-[30%] text-gray-800 leading-relaxed normal-case font-mono">
+        <span class="hidden md:inline">Exploring the story of life on earth<br>through science, discovery<br>and
+          wonder.</span>
+        <span class="inline md:hidden">Exploring the story of life on earth through science, discovery and
+          wonder.</span>
+      </div>
+
+      <div class="hidden md:block w-[5%] pt-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </div>
+
+      <div class="hidden md:block w-[15%]">
+        <ul class="space-y-1 text-gray-800 font-mono">
+          <li><a href="#" class="hover:text-black hover:underline">Visit</a></li>
+          <li><a href="#" class="hover:text-black hover:underline">Exhibitions</a></li>
+          <li><a href="#" class="hover:text-black hover:underline">Discover</a></li>
+          <li><a href="#" class="hover:text-black hover:underline">Learn</a></li>
+          <li><a href="#" class="hover:text-black hover:underline">About</a></li>
+        </ul>
+      </div>
+
+      <button id="menu-toggle"
+        class="flex flex-col justify-center items-end gap-[6px] cursor-pointer z-60 group h-8 pl-4"
+        aria-label="Toggle navigation overlay menu">
+        <span id="burger-line-1"
+          class="w-8 h-[1.5px] bg-black transition-all duration-300 group-hover:w-6 origin-center"></span>
+        <span id="burger-line-2"
+          class="w-8 h-[1.5px] bg-black transition-all duration-300 group-hover:w-10 origin-center"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu"
+      class="hidden absolute top-[140px] left-0 w-full bg-[#fcfcfc] border-b border-gray-200 shadow-xl md:hidden z-50 transform -translate-y-5 opacity-0 transition-all duration-300 pointer-events-none">
+      <div class="px-8 py-10 flex flex-col space-y-6 font-mono text-sm tracking-[0.2em] uppercase">
+        <a href="#" class="text-gray-800 hover:text-black">Visit</a>
+        <a href="#" class="text-gray-800 hover:text-black">Exhibitions</a>
+        <a href="#" class="text-gray-800 hover:text-black">Discover</a>
+        <a href="#" class="text-gray-800 hover:text-black">Learn</a>
+        <a href="#" class="text-gray-800 hover:text-black">About</a>
+      </div>
+    </div>
+
+    <div class="flex flex-1 justify-between items-start w-full relative z-10">
+
+      <div id="hero-left-content"
+        class="px-10 md:px-16 mt-20 sm:mt-28 md:mt-32 w-[320px] flex flex-col items-start opacity-0 transform translate-y-5 transition-all duration-800 ease-out"
+        style="transition-delay: 850ms;">
+        <div class="flex items-center gap-4 text-xs font-mono mb-4 text-gray-500">
+          <span>01</span>
+          <span class="w-16 h-[1.5px] bg-black/20"></span>
+        </div>
+
+        <h2 class="text-[3.5rem] md:text-[5rem] font-normal tracking-tight leading-[1] text-[#111] mb-6">
+          TIMELESS<br>WONDERS
+        </h2>
+
+        <p class="text-[13px] md:text-[14px] text-gray-700 w-[240px] leading-[1.6] mb-8 font-sans">
+          Step into the natural world and discover the stories written millions of years ago.
+        </p>
+
+        <button
+          class="relative bg-[#1a1a1a] px-6 py-3.5 border border-[#1a1a1a] rounded-md shadow-sm overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-[0.5px] hover:shadow-[3px_3px_0px_rgba(17,17,17,0.5)] active:translate-y-0 active:shadow-sm">
+          <span
+            class="absolute inset-0 bg-[#fcfcfc] transform -translate-x-[101%] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0 z-0"></span>
+
+          <div class="relative z-10 flex items-center gap-3">
+            <svg
+              class="w-4 h-4 text-white transform fill-current transition-all duration-300 group-hover:text-[#111] group-hover:scale-110 group-hover:-rotate-12 group-hover:-translate-y-1"
+              viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.46.3.06.41-.13.41-.29v-1.03c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1.01.07 1.54 1.04 1.54 1.04.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21.2c0 .16.11.35.42.29C19.14 20.16 22 16.42 22 12c0-5.52-4.48-10-10-10z" />
+            </svg>
+            <span
+              class="text-[15px] font-medium text-white transition-colors duration-300 group-hover:text-[#111]">Explore
+              Now</span>
+          </div>
+        </button>
+      </div>
+
+      <div id="hero-right-content"
+        class="hidden md:flex w-[200px] mt-12 md:mt-20 pr-16 flex-col items-start gap-8 opacity-0 transform translate-y-5 transition-all duration-800 ease-out"
+        style="transition-delay: 1000ms;">
+        <div>
+          <h4 class="text-[10px] font-bold font-mono tracking-widest uppercase mb-2 text-[#111]">Tyrannosaurus Rex</h4>
+          <p class="text-[12px] text-gray-600 leading-[1.6]">Late Cretaceous period<br>68-66 million years ago</p>
+        </div>
+
+        <div class="space-y-4 w-full">
+          <div>
+            <div class="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-0.5">Length</div>
+            <div class="text-[13px] font-medium text-[#111]">12.3 m</div>
+          </div>
+          <div>
+            <div class="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-0.5">Height</div>
+            <div class="text-[13px] font-medium text-[#111]">4.0 m</div>
+          </div>
+        </div>
+
+        <button class="flex items-center gap-3 cursor-pointer group">
+          <span
+            class="w-10 h-10 rounded-full border border-gray-400 flex items-center justify-center transition-all duration-300 group-hover:border-black group-hover:bg-[#111]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+              class="text-[#111] group-hover:text-white transition-colors duration-300">
+              <path d="M5 12h14"></path>
+              <path d="M12 5v14"></path>
+            </svg>
+          </span>
+          <span class="text-[10px] font-mono uppercase tracking-widest font-bold text-[#111]">View Details</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="hero-scroll-explore"
+      class="absolute bottom-10 left-[2.5rem] md:left-[4rem] hidden md:flex items-center gap-4 opacity-0 transform translate-y-5 transition-all duration-800 ease-out"
+      style="transition-delay: 1200ms;">
+      <div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center gap-[4px]">
+        <span class="w-[1px] h-[12px] bg-gray-600"></span>
+        <span class="w-[1px] h-[12px] bg-gray-600"></span>
+      </div>
+      <span class="text-[10px] font-mono tracking-widest uppercase text-gray-500 font-semibold">Scroll to explore</span>
+    </div>
+
+  </div>
+
+  <section id="section-2"
+    class="relative w-full min-h-[75vh] md:min-h-screen bg-[#fcfcfc] flex flex-col items-center pt-24 md:pt-32 pb-0 z-20">
+
+    <div class="text-[10px] md:text-[11px] font-mono tracking-[0.2em] mb-12 uppercase">
+      <span class="text-gray-500">[ 02 ]</span>
+      <span class="text-gray-900 font-bold ml-1">Explore Our World</span>
+    </div>
+
+    <h3 id="sec2-heading"
+      class="text-[2.2rem] md:text-[3.5rem] lg:text-[4.2rem] leading-[1.1] font-medium tracking-tight text-[#111] max-width-[1000px] text-center px-6 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out">
+      Unearth the stories of our planet's past<br class="hidden md:inline"> through fossils, minerals, and ancient
+      wonders.
+    </h3>
+
+    <div id="sec2-pills" class="flex flex-wrap justify-center gap-3 md:gap-4 mt-10 mb-10 md:mb-24 px-6">
+      <button
+        class="pill-item opacity-0 transform translate-y-4 transition-all duration-500 px-5 py-2.5 rounded-full border border-gray-300 text-[11px] font-medium uppercase tracking-wider bg-white/50 backdrop-blur-sm text-gray-800 flex items-center gap-2 hover:border-black hover:bg-black hover:text-white cursor-pointer transition-colors duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20"></path>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+        Dinosaurs
+      </button>
+      <button
+        class="pill-item opacity-0 transform translate-y-4 transition-all duration-500 px-5 py-2.5 rounded-full border border-gray-300 text-[11px] font-medium uppercase tracking-wider bg-white/50 backdrop-blur-sm text-gray-800 flex items-center gap-2 hover:border-black hover:bg-black hover:text-white cursor-pointer transition-colors duration-300"
+        style="transition-delay: 100ms;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5"></path>
+          <path d="M12 2C6.48 2 2 6.48 2 12c0 1.21.21 2.37.61 3.45"></path>
+          <path d="M21.39 15.45A9.95 9.95 0 0 0 22 12c0-5.52-4.48-10-10-10"></path>
+        </svg>
+        Ancient Life
+      </button>
+      <button
+        class="pill-item opacity-0 transform translate-y-4 transition-all duration-500 px-5 py-2.5 rounded-full border border-gray-300 text-[11px] font-medium uppercase tracking-wider bg-white/50 backdrop-blur-sm text-gray-800 flex items-center gap-2 hover:border-black hover:bg-black hover:text-white cursor-pointer transition-colors duration-300"
+        style="transition-delay: 200ms;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h12l4 6-10 13L2 9z"></path>
+          <path d="M11 3 8 9l4 13 4-13-3-6"></path>
+          <path d="M2 9h20"></path>
+        </svg>
+        Minerals
+      </button>
+      <button
+        class="pill-item opacity-0 transform translate-y-4 transition-all duration-500 px-5 py-2.5 rounded-full border border-gray-300 text-[11px] font-medium uppercase tracking-wider bg-white/50 backdrop-blur-sm text-gray-800 flex items-center gap-2 hover:border-black hover:bg-black hover:text-white cursor-pointer transition-colors duration-300"
+        style="transition-delay: 300ms;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8A7 7 0 0 1 11 20z"></path>
+          <path d="M9 22v-4h4v4"></path>
+        </svg>
+        Fossils
+      </button>
+      <button
+        class="pill-item opacity-0 transform translate-y-4 transition-all duration-500 px-5 py-2.5 rounded-full border border-gray-300 text-[11px] font-medium uppercase tracking-wider bg-white/50 backdrop-blur-sm text-gray-800 flex items-center gap-2 hover:border-black hover:bg-black hover:text-white cursor-pointer transition-colors duration-300"
+        style="transition-delay: 400ms;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+        Learn More
+      </button>
+    </div>
+
+    <div class="w-full min-h-[220px] md:min-h-[450px]"></div>
+
+    <div
+      class="absolute bottom-0 left-0 w-full px-8 md:px-16 pb-8 md:pb-12 hidden md:flex justify-between items-center pointer-events-none text-[10px] font-mono tracking-widest uppercase text-gray-500 font-medium">
+      <div>We don't just tell stories.</div>
+      <div>Paleontology (C) 2026</div>
+    </div>
+  </section>
+
+  <section class="relative w-full bg-[#0a0a0a] text-white flex flex-col z-30">
+
+    <img id="pterodactyl-img"
+      src="https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779625001/ChatGPT_Image_May_23_2026_12_24_44_PM_1_lv1dne.png"
+      alt="Prehistoric Pterodactyl Specimen"
+      class="absolute left-1/2 w-[160vw] md:w-[1100px] pointer-events-none z-0 transform -translate-x-1/2 -translate-y-[65%] opacity-0 transition-all duration-[1400ms] ease-out">
+
+    <div
+      class="px-8 md:px-16 pt-32 md:pt-48 mb-16 z-10 relative flex flex-col xl:flex-row xl:justify-between xl:items-end gap-8">
+
+      <h4
+        class="text-[1.8rem] md:text-[3rem] lg:text-[3.8rem] xl:text-[4rem] leading-[1.15] font-medium tracking-tight text-white max-w-4xl">
+        Curated from millions of years of wonder
+        <span class="inline-flex gap-2 md:gap-3 align-middle mx-2 md:mx-4 transform -translate-y-[4px]">
+          <span
+            class="w-10 h-10 md:w-14 md:h-14 rounded-full border border-gray-600 bg-black text-gray-400 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2v20"></path>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </span>
+          <span
+            class="w-10 h-10 md:w-14 md:h-14 rounded-full border border-gray-600 bg-black text-gray-400 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5">
+              <path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5"></path>
+              <path d="M12 2C6.48 2 2 6.48 2 12c0 1.21.21 2.37.61 3.45"></path>
+            </svg>
+          </span>
+          <span
+            class="w-10 h-10 md:w-14 md:h-14 rounded-full border border-gray-600 bg-black text-gray-400 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8A7 7 0 0 1 11 20z"></path>
+            </svg>
+          </span>
+        </span>
+        & discovery.
+      </h4>
+
+      <div class="flex flex-col items-start xl:items-end">
+        <div
+          class="text-[9px] md:text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-6 leading-relaxed xl:text-right">
+          WE DON'T JUST DISPLAY FOSSILS<br>WE SHARE EARTH'S STORY
+        </div>
+        <div class="flex gap-2">
+          <span
+            class="px-5 py-2 rounded-full border border-gray-600 text-[9px] font-mono tracking-widest uppercase text-gray-300 hover:bg-white hover:text-black hover:border-white transition-all duration-300">Educational</span>
+          <span
+            class="px-5 py-2 rounded-full border border-gray-600 text-[9px] font-mono tracking-widest uppercase text-gray-300 hover:bg-white hover:text-black hover:border-white transition-all duration-300">Authentic</span>
+          <span
+            class="px-5 py-2 rounded-full border border-gray-600 text-[9px] font-mono tracking-widest uppercase text-gray-300 hover:bg-white hover:text-black hover:border-white transition-all duration-300">Inspiring</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full border-t border-gray-800 flex flex-col md:flex-row z-10 relative">
+
+      <div
+        class="w-full md:w-[35%] border-b md:border-b-0 md:border-r border-gray-800 min-h-[400px] md:min-h-[500px] flex flex-col justify-between p-8 relative">
+        <div class="text-gray-500 text-xl tracking-[0.3em] font-mono">***</div>
+
+        <div class="absolute inset-0 w-[80%] h-[80%] m-auto flex items-center justify-center overflow-hidden">
+          <img id="chapter-viewscreen" src="" alt="Active Chapter Artwork Preview" crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+            class="sand-target max-w-full max-h-full object-contain mix-blend-lighten opacity-0">
+        </div>
+
+        <div
+          class="text-[10px] font-mono tracking-widest text-[#888] uppercase flex items-center gap-1 overflow-hidden h-4">
+          <div class="relative w-4 h-4 overflow-hidden">
+            <div id="counter-digit-target"
+              class="absolute top-0 left-0 flex flex-col transition-transform duration-500 ease-out transform translate-y-0">
+              <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
+            </div>
+          </div>
+          <span class="text-[#333] font-sans">/</span>
+          <span>05</span>
+        </div>
+      </div>
+
+      <div class="w-full md:w-[65%] flex flex-col">
+        <div
+          class="border-b border-gray-800 p-8 text-[10px] font-mono text-gray-400 tracking-widest flex justify-between items-center">
+          <span>Explore the past. Understand the present.</span>
+          <span id="chapter-label-indicator">CHAPTER 03</span>
+        </div>
+
+        <div id="chapter-links-container" class="flex flex-col w-full">
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="border-t border-gray-800 w-full px-8 py-8 text-[10px] font-mono tracking-widest text-gray-500 uppercase bg-[#0a0a0a] z-10 relative">
+      DIGGING INTO OUR PLANET'S PAST
+    </div>
+  </section>
+
+  <script>
+    // ------------------------------------------------------------------------
+    // DATA CONFIGURATION
+    // ------------------------------------------------------------------------
+    const chaptersData = [
+      { name: "Age of Dinosaurs", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624247/01_udnber.png" },
+      { name: "Fossils of Ancient Life", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624374/02_pmvxxl.png" },
+      { name: "Reptiles of the Mesozoic", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624236/03_hcp3jc.png" },
+      { name: "Marine Fossil Gallery", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624256/04_get63z.png" },
+      { name: "Prehistoric Giants", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624251/05_kz1tyu.png" }
+    ];
+
+    // ------------------------------------------------------------------------
+    // CORE GLOBAL STATE APPLICATION SCOPE
+    // ------------------------------------------------------------------------
+    let showVideo = false;
+    let activeChapter = 2; // Default start at index 2 ("Reptiles of the Mesozoic")
+    let isMobileMenuOpen = false;
+    let autoCycleInterval = null;
+
+    // DOM Nodes cached definitions
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const burgerLine1 = document.getElementById('burger-line-1');
+    const burgerLine2 = document.getElementById('burger-line-2');
+    const viewScreen = document.getElementById('chapter-viewscreen');
+    const linksContainer = document.getElementById('chapter-links-container');
+    const counterTarget = document.getElementById('counter-digit-target');
+    const labelIndicator = document.getElementById('chapter-label-indicator');
+    const displaceMap = document.querySelector('#sand-displace-filter feDisplacementMap');
+    const filterOffset = document.querySelector('#sand-displace-filter feOffset');
+    const filterBlur = document.querySelector('#sand-displace-filter feGaussianBlur');
+    const filterColorMatrix = document.querySelector('#sand-displace-filter feColorMatrix');
+
+    // ------------------------------------------------------------------------
+    // INTRODUCTORY HERO STAGGER ENTRANCE INTERPOLATIONS
+    // ------------------------------------------------------------------------
+    window.addEventListener('DOMContentLoaded', () => {
+      // Trigger NHM Logo Letter Block Polygon Translation Elevations
+      const logoContainer = document.getElementById('nhm-logo-container');
+      logoContainer.classList.remove('scale-[1.03]');
+
+      const polygons = document.querySelectorAll('.letter-group polygon');
+      polygons.forEach(poly => {
+        poly.classList.remove('translate-y-[120px]', 'opacity-0');
+      });
+
+      // Sub Nav + Sidebars Fluid Elevation Revelations
+      setTimeout(() => {
+        document.getElementById('sub-nav').classList.remove('opacity-0', 'translate-y-5');
+      }, 50);
+
+      setTimeout(() => {
+        document.getElementById('hero-left-content').classList.remove('opacity-0', 'translate-y-5');
+      }, 150);
+
+      setTimeout(() => {
+        document.getElementById('hero-right-content').classList.remove('opacity-0', 'translate-y-5');
+        document.getElementById('hero-scroll-explore').classList.remove('opacity-0', 'translate-y-5');
+      }, 300);
+
+      // Async Delay Hook for Cinematic Video Stream Playback Initiation
+      setTimeout(() => {
+        showVideo = true;
+        const videoCont = document.getElementById('hero-video-container');
+        const videoElement = document.getElementById('hero-video');
+        videoCont.classList.remove('opacity-0');
+        videoCont.classList.add('opacity-100');
+        videoElement.play().catch(err => console.log("Autoplay stream structural hold active. Waiting interaction."));
+      }, 2800);
+
+      // Build out lists and initiate runtime engine loops
+      renderChapterList();
+      syncActiveChapterUI(true); // Force instant visual sync on landing init
+      startAutoCycle();
+    });
+
+    // ------------------------------------------------------------------------
+    // RESPONSIVE NAVIGATION MOBILE OVERLAY CONTROLLER
+    // ------------------------------------------------------------------------
+    menuToggle.addEventListener('click', () => {
+      isMobileMenuOpen = !isMobileMenuOpen;
+      if (isMobileMenuOpen) {
+        mobileMenu.classList.remove('hidden');
+        // Small layout engine repaint allowance delay for clean CSS transforms
+        setTimeout(() => {
+          mobileMenu.classList.remove('opacity-0', '-translate-y-5');
+          mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        }, 10);
+
+        // Transform Hamburger bars into an execution cross 'X'
+        burgerLine1.style.transform = 'translateY(4px) rotate(45deg)';
+        burgerLine2.style.transform = 'translateY(-4px) rotate(-45deg)';
+      } else {
+        mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        mobileMenu.classList.add('opacity-0', '-translate-y-5');
+        setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+
+        // Return burger vectors to clean flat lines
+        burgerLine1.style.transform = 'none';
+        burgerLine2.style.transform = 'none';
+      }
+    });
+
+    // ------------------------------------------------------------------------
+    // SYSTEM SCROLL INTERSECTION OBSERVATIONS (Framers' whileInView Equivalent)
+    // ------------------------------------------------------------------------
+    const observerOptions = {
+      root: null,
+      threshold: 0.1,
+      rootMargin: "-100px 0px"
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'sec2-heading') {
+            entry.target.classList.remove('opacity-0', 'translate-y-10');
+          } else if (entry.target.id === 'sec2-pills') {
+            const pills = entry.target.querySelectorAll('.pill-item');
+            pills.forEach(pill => pill.classList.remove('opacity-0', 'translate-y-4'));
+          } else if (entry.target.id === 'pterodactyl-img') {
+            entry.target.classList.remove('opacity-0');
+            entry.target.style.transform = 'translateX(-50%) translateY(-78%)';
+          }
+        }
+      });
+    }, observerOptions);
+
+    scrollObserver.observe(document.getElementById('sec2-heading'));
+    scrollObserver.observe(document.getElementById('sec2-pills'));
+
+    // Explicit extended tracking setup for top-overlapping Pterodactyl Matrix Image
+    const pteroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.getElementById('pterodactyl-img').classList.remove('opacity-0');
+          document.getElementById('pterodactyl-img').style.transform = 'translateX(-50%) translateY(-78%)';
+        }
+      });
+    }, { rootMargin: "100px" });
+    pteroObserver.observe(document.getElementById('section-2'));
+
+    // ------------------------------------------------------------------------
+    // INTERACTIVE NAVIGATION MATRIX COMPONENT BUILDER
+    // ------------------------------------------------------------------------
+    function renderChapterList() {
+      linksContainer.innerHTML = '';
+      chaptersData.forEach((chapter, index) => {
+        const item = document.createElement('div');
+        item.className = `chapter-row border-b border-gray-800/80 py-8 px-8 flex justify-between items-center cursor-pointer transition-colors duration-300`;
+        item.dataset.index = index;
+
+        item.innerHTML = `
+          <span class="chapter-name text-2xl md:text-[2rem] font-medium tracking-tight transition-colors duration-300">${chapter.name}</span>
+          <div class="arrow-container opacity-0 transform -translate-x-2 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </div>
+        `;
+
+        item.addEventListener('click', () => {
+          if (activeChapter === index) return;
+          clearInterval(autoCycleInterval); // Clear automation scheduling on real client overrides
+          executeSandTransition(index);
+          startAutoCycle(); // Restart cycle clock fresh
+        });
+
+        linksContainer.appendChild(item);
+      });
+    }
+
+    // ------------------------------------------------------------------------
+    // HIGH FIDELITY SAND DISINTEGRATION SVG TRANSITION TRANSFORMATION ENGINE
+    // ------------------------------------------------------------------------
+    function executeSandTransition(nextIndex) {
+      const duration = 900; // Exact millisecond timing budget sequence matching Framer specification
+      const startTime = performance.now();
+      const initialIndex = activeChapter;
+
+      // Phase 1: Disintegration Loop Cycle Execution Trigger via RequestAnimationFrame
+      function animateSandOut(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / (duration * 0.5), 1);
+
+        // Easing applied: Cubic Out Ease implementation
+        const easedProgress = Math.pow(progress, 3);
+
+        // Map displacement vector transforms programmatically
+        const displacementScale = easedProgress * 150;
+        const offsetY = easedProgress * 120;
+        const offsetX = easedProgress * 30;
+        const blurRadius = easedProgress * 6;
+        const calculatedAlpha = Math.max(1 - (easedProgress * 1.2), 0);
+
+        displaceMap.setAttribute('scale', displacementScale);
+        filterOffset.setAttribute('dy', offsetY);
+        filterOffset.setAttribute('dx', offsetX);
+        filterBlur.setAttribute('stdDeviation', blurRadius);
+        filterColorMatrix.setAttribute('values', `1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 ${calculatedAlpha} 0`);
+
+        if (progress < 1) {
+          requestAnimationFrame(animateSandOut);
+        } else {
+          // Midpoint Checkpoint: Complete content mutation step while layout remains dissolved
+          activeChapter = nextIndex;
+          syncActiveChapterUI(false);
+
+          // Phase 2: Integration Assembly Reverse Progression Cycle
+          const reverseStartTime = performance.now();
+          function animateSandIn(nowIn) {
+            const elapsedIn = nowIn - reverseStartTime;
+            const progressIn = Math.min(elapsedIn / (duration * 0.5), 1);
+
+            // Easing applied: Quartic Ease Out configuration matching spec
+            const easedProgressIn = 1 - Math.pow(1 - progressIn, 4);
+
+            const displacementScaleIn = (1 - easedProgressIn) * 150;
+            const offsetYIn = -80 * (1 - easedProgressIn);
+            const offsetXIn = -30 * (1 - easedProgressIn);
+            const blurRadiusIn = 6 * (1 - easedProgressIn);
+            const calculatedAlphaIn = easedProgressIn;
+
+            displaceMap.setAttribute('scale', displacementScaleIn);
+            filterOffset.setAttribute('dy', offsetYIn);
+            filterOffset.setAttribute('dx', offsetXIn);
+            filterBlur.setAttribute('stdDeviation', blurRadiusIn);
+            filterColorMatrix.setAttribute('values', `1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 ${calculatedAlphaIn} 0`);
+
+            if (progressIn < 1) {
+              requestAnimationFrame(animateSandIn);
+            } else {
+              // Finalize filter cleanup to eliminate render scaling performance leaks
+              resetFilterPlugs();
+            }
+          }
+          requestAnimationFrame(animateSandIn);
+        }
+      }
+      requestAnimationFrame(animateSandOut);
+    }
+
+    function resetFilterPlugs() {
+      displaceMap.setAttribute('scale', '0');
+      filterOffset.setAttribute('dy', '0');
+      filterOffset.setAttribute('dx', '0');
+      filterBlur.setAttribute('stdDeviation', '0');
+      filterColorMatrix.setAttribute('values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0');
+    }
+
+    // ------------------------------------------------------------------------
+    // UI RE-SYNCHRONIZATION & STATE DATA REFLECTION LAYER
+    // ------------------------------------------------------------------------
+    function syncActiveChapterUI(isInitialLoad = false) {
+      // Mutate Media View Screen properties
+      viewScreen.src = chaptersData[activeChapter].image;
+      if (isInitialLoad) {
+        viewScreen.classList.remove('opacity-0');
+        viewScreen.classList.add('opacity-100');
+      }
+
+      // Sync Top-Right Header Status Indicators
+      labelIndicator.innerText = `CHAPTER 0${activeChapter + 1}`;
+
+      // Calculate sliding counter transformations
+      const lineOffsetHeight = 16;
+      counterTarget.style.transform = `translateY(-${activeChapter * lineOffsetHeight}px)`;
+
+      // Process and update navigation link nodes states classes
+      const rows = linksContainer.querySelectorAll('.chapter-row');
+      rows.forEach((row, idx) => {
+        const nameText = row.querySelector('.chapter-name');
+        const arrow = row.querySelector('.arrow-container');
+
+        if (idx === activeChapter) {
+          row.classList.remove('text-[#444]', 'hover:text-[#999]');
+          row.classList.add('text-white');
+          nameText.classList.add('font-semibold');
+          arrow.classList.remove('opacity-0', '-translate-x-2');
+          arrow.classList.add('opacity-100', 'translate-y-0');
+        } else {
+          row.classList.remove('text-white');
+          row.classList.add('text-[#444]', 'hover:text-[#999]');
+          nameText.classList.remove('font-semibold');
+          arrow.classList.remove('opacity-100', 'translate-y-0');
+          arrow.classList.add('opacity-0', '-translate-x-2');
+        }
+      });
+    }
+
+    // ------------------------------------------------------------------------
+    // AUTOMATED TEMPORAL CYCLE ROTATION SCHEDULER
+    // ------------------------------------------------------------------------
+    function startAutoCycle() {
+      autoCycleInterval = setInterval(() => {
+        const nextTargetIndex = (activeChapter + 1) % chaptersData.length;
+        executeSandTransition(nextTargetIndex);
+      }, 3500); // 3500ms intervals between system automation step executions
+    }
+  </script>
+</body>
+
+</html>
